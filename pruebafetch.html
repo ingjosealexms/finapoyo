@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      width: 100vw;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    p {
+      background-color: aliceblue;
+      color: blue;
+      height: 60px;
+      min-width: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-weight: 900;
+      transition: 1s steps(5, end);
+    }
+
+    .y {
+      transform: translateX(500px);
+    }
+
+    button {
+      margin: 50px;
+      background-color: blue;
+      border-radius: 8px;
+      width: 70px;
+      height: 50px;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    div .n {
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background-color: black;
+      position: absolute;
+      min-width: 2px;
+      animation: reloj 60s steps(60, end) infinite;
+    }
+
+    div .m {
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background-color: black;
+      position: absolute;
+      min-width: 2px;
+      animation: reloj 3600s steps(60, end) infinite;
+    }
+
+    .n::before {
+      content: "";
+      position: absolute;
+      width: 5px;
+      bottom: 1px;
+      left: -1.5px;
+      height: 100px;
+      background-color: coral;
+    }
+
+    .m::after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      bottom: 1px;
+      left: -1.5px;
+      height: 100px;
+      background-color: rgb(141, 40, 15);
+    }
+
+    @keyframes reloj {
+      0% {
+        transform: rotateZ(0deg);
+      }
+      100% {
+        transform: rotateZ(360deg);
+      }
+    }
+  </style>
+
+  <body>
+   
+
+    <button>Buscar</button>
+
+    <script>
+      b = document.querySelector("button");
+      b.addEventListener("click", () => {
+        fetch("https://localhost:443/k", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: "Omar" }),
+        })
+          .then((res) => 
+          {
+          for(let a of res.headers){
+           console.log(a)
+          }
+          return res.json()
+         })
+          .then((res) => {
+           console.log(res)
+         
+          })
+          .catch((r) => {
+            console.log(r);
+          });
+
+          console.log(document)
+      });
+    </script>
+  </body>
+</html>
