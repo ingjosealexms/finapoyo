@@ -12,7 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "lurl": () => (/* binding */ lurl)
 /* harmony export */ });
 
-const lurl = 'http://localhost:4000';
+const lurl = 'http://3.14.17.178:4000';
 
 
 /***/ }),
